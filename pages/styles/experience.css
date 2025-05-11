@@ -1,0 +1,91 @@
+/* experience.css */
+
+.experience-full {
+  padding: 120px 10% 60px;
+  background: rgba(10, 10, 10, 0.95);
+}
+
+.timeline {
+  position: relative;
+  margin-top: 50px;
+  padding-left: 30px;
+  border-left: 2px solid #00FFFF;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background: #00FFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00FFFF;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.timeline-dot:hover {
+  background: #fff;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #00FFFF, 0 0 25px #00FFFF;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  color: #00FFFF;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.timeline-content span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.experience-link.center {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-content {
+    font-size: 0.95rem;
+  }
+
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    left: -9px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+}
