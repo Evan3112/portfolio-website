@@ -1,0 +1,101 @@
+// ===== Menu Icon Toggle (for mobile) =====
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+// ===== Scroll Sections Active Link =====
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+window.onscroll = () => {
+  let top = window.scrollY;
+  sections.forEach(sec => {
+    let offset = sec.offsetTop - 100;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+      });
+    }
+  });
+
+  // Sticky Navbar
+  let header = document.querySelector('.header');
+  header.classList.toggle('sticky', window.scrollY > 100);
+
+  // Remove toggle icon and navbar when link clicked (for mobile)
+  menuIcon.classList.remove('bx-x');
+  navbar.classList.remove('active');
+};
+
+
+menuIcon.onclick = () => {
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('active');
+};
+
+// ===== Typed.js Animation =====
+const typed = new Typed('.multiple-text', {
+  strings: ['Developer', 'Designer', 'Creator'],
+  typeSpeed: 100,
+  backSpeed: 50,
+  backDelay: 1000,
+  loop: true
+});
+
+// ===== Simulated Contact Form Submit Handler =====
+document.querySelector('.contact form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent actual form submission
+
+  // Show toast
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+
+  // Clear inputs
+  this.reset();
+
+  // Hide after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+});
+
+// ===== Scroll Reveal Animation =====
+ScrollReveal({
+  reset: true,
+  distance: '80px',
+  duration: 2000,
+  delay: 200
+});
+
+ScrollReveal().reveal('.project-card', { 
+  origin: 'bottom',
+  distance: '40px',
+  duration: 800,
+  delay: 100,
+  easing: 'ease-in-out',
+  reset: true,
+  interval: 200
+});
+
+// ScrollReveal({
+//   distance: '50px',
+//   duration: 1000,
+//   easing: 'ease-in-out',
+//   reset: true
+// });
+
+// ScrollReveal().reveal('.project-card', {
+//   origin: 'bottom',
+//   interval: 200
+// });
+
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .project-card, .contact form', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+ScrollReveal().reveal('.exp-card', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.resume-card', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.contact form', { origin: 'bottom', distance: '60px', delay: 50 });
